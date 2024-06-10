@@ -166,9 +166,9 @@ fun createFormattedJson(columnMetadata: List<ColumnMetadata>, values: List<List<
     values.forEach { recordValues ->
         val recordMap = mutableMapOf<String, Any?>();
         recordValues.forEachIndexed { index, recordValue ->
-            val columnName = columnMetadata[index].name
-            if (columnName != null) {
-                recordMap[columnName] = recordValue
+            val columnLabel = columnMetadata[index].label
+            if (columnLabel != null) {
+                recordMap[columnLabel] = recordValue
             }
         }
         jsonObjects.add(JsonObject(recordMap.toJsonObject()))
