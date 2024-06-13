@@ -5,14 +5,14 @@ LABEL maintainer="Koudai Aono <koxudaxi@gmail.com>"
 ENV MODULE_NAME local_data_api.main
 ENV MARIADB_CLIENT_VERSION 2.5.0
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
-ENV LD_LIBRARY_PATH /usr/lib/jvm/java-11-openjdk/jre/lib/amd64/server/
+ENV LD_LIBRARY_PATH /usr/lib/jvm/java-17-openjdk/jre/lib/amd64/server/
 
 
 # This app supports only single process to share connections on workers
 ENV WEB_CONCURRENCY 1
 
 RUN  mkdir -p /usr/share/man/man1 \
-     && apt-get update && apt-get install -y openjdk-11-jre libpq-dev  \
+     && apt-get update && apt-get install -y openjdk-17-jre libpq-dev  \
      && savedAptMark="$(apt-mark showmanual)" \
      && apt-get install -y gcc curl \
      && pip install JPype1==1.2.0 psycopg2==2.8.5\
